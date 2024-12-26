@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h2>Edit Project</h2>
+    <form method="POST" action="/project/{{ project.id }}">
+        <input type="hidden" name="_method" value="PUT">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" value="{{ project.title }}"><br>
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description">{{ project.description }}</textarea><br>
+        <button type="submit">Update Project</button>
+    </form>
+{% endblock %}

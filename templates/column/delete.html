@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h2>Delete Column</h2>
+    <p>Are you sure you want to delete column "{{ column.title }}"?</p>
+    <form method="POST" action="/column/{{ column.id }}">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit">Delete Column</button>
+    </form>
+    <a href="/project/{{ column.project_id }}">Cancel</a>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h2>View Task</h2>
+    <p><strong>ID:</strong> {{ task.id }}</p>
+    <p><strong>Title:</strong> {{ task.title }}</p>
+    <p><strong>Description:</strong> {{ task.description }}</p>
+    <p><strong>Status:</strong> {{ task.status }}</p>
+    <p><strong>Created At:</strong> {{ task.created_at }}</p>
+    <p><strong>Updated At:</strong> {{ task.updated_at }}</p>
+    <h3>Logs</h3>
+    <ul>
+        {% for log in task.logs %}
+            <li>{{ log.timestamp }} - {{ log.action }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/column/{{ task.column_id }}">Back to Column</a>
+{% endblock %}

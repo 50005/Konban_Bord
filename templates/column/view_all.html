@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h2>All Columns</h2>
+    <ul>
+        {% for column in columns %}
+            <li><a href="/column/{{ column.id }}">{{ column.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

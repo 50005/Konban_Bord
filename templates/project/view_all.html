@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h2>All Projects</h2>
+    <ul>
+        {% for project in projects %}
+            <li><a href="/project/{{ project.id }}">{{ project.title }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="/project/create">Create New Project</a>
+{% endblock %}

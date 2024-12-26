@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h2>Edit Task</h2>
+    <form method="POST" action="/task/{{ task.id }}">
+        <input type="hidden" name="_method" value="PUT">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" value="{{ task.title }}"><br>
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description">{{ task.description }}</textarea><br>
+        <label for="status">Status:</label><br>
+        <select id="status" name="status">
+            <option value="В очереди" {% if task.status == "В очереди" %}selected{% endif %}>В очереди</option>
+            <option value="В работе" {% if task.status == "В работе" %}selected{% endif %}>В работе</option>
+            <option value="Выполнено" {% if task.status == "Выполнено" %}selected{% endif %}>Выполнено</option>
+        </select><br>
+        <button type="submit">Update Task</button>
+    </form>
+{% endblock %}

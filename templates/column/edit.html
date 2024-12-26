@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h2>Edit Column</h2>
+    <form method="POST" action="/column/{{ column.id }}">
+        <input type="hidden" name="_method" value="PUT">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" value="{{ column.title }}"><br>
+        <button type="submit">Update Column</button>
+    </form>
+{% endblock %}

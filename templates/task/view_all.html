@@ -1,0 +1,39 @@
+<!-- templates/task/view_all.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Tasks</title>
+</head>
+<body>
+    <h1>All Tasks</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Project</th>
+                <th>Column</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.title }}</td>
+                <td>{{ task.description }}</td>
+                <td>{{ task.status }}</td>
+                <td>{{ task.project.title }}</td>
+                <td>{{ task.column.title }}</td>
+                <td>
+                    <a href="{{ url_for('task.get_edit_task_form', task_id=task.id) }}">Edit</a>
+                    <a href="{{ url_for('task.get_delete_task_form', task_id=task.id) }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('task.create_task_form') }}">Create New Task</a>
+</body>
+</html>
